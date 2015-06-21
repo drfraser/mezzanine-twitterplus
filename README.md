@@ -37,17 +37,17 @@ It can be configured to either support 'tweet with optional image' or 'tweet, al
 1. Modify FORMFIELD_HTML as necessary
 2. Add the mixin as follows to classes that support tweeting (drop in replacement for TweetableAdminMixin)
 
-class ObjectAdmin(TweetImageAdminMixin, ...)
+    class ObjectAdmin(TweetImageAdminMixin, ...)
 
 3. Add or modify the parent class init() to insert init parameters for TweetImageAdminMixin to override default
 settings (display both checkboxes, image field name is 'image', text to tweet is str(obj))
 
-```def __init__(self, *args, *kwargs):
-    kwargs['text_or_image'] = False
-    kwargs['tweet_image_field'] = 'tweeted_image'
-    kwargs['tweet_field'] = 'tweet'
-    super(Class, self).__init__(*args, **kwargs)
-```
+    def __init__(self, *args, *kwargs):
+        kwargs['text_or_image'] = False
+        kwargs['tweet_image_field'] = 'tweeted_image'
+        kwargs['tweet_field'] = 'tweet'
+        super(Class, self).__init__(*args, **kwargs)
+
 
 TweetAction
 -------------
@@ -60,16 +60,15 @@ be implemented
 
 1. Add the mixin as follows to classes that support tweeting (drop in replacement for TweetableAdminMixin)
 
-class ObjectAdmin(TweetAction, models.ModelAdmin)
+    class ObjectAdmin(TweetAction, models.ModelAdmin)
 
 2. Add or modify the parent class init() to insert init parameters for TweetAction to override default
 settings (image field name is None (no image present to be tweeted), text to tweet is str(obj))
 
-```def __init__(self, *args, *kwargs):
-    kwargs['tweet_image_field'] = 'tweeted_image'
-    kwargs['tweet_field'] = 'tweet'
-    super(Class, self).__init__(*args, **kwargs)
-```
+    def __init__(self, *args, *kwargs):
+        kwargs['tweet_image_field'] = 'tweeted_image'
+        kwargs['tweet_field'] = 'tweet'
+        super(Class, self).__init__(*args, **kwargs)
 
 
 TODO
