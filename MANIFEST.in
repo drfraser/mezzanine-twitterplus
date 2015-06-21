@@ -1,0 +1,3 @@
+include CHANGELOG LICENSE
+include README.md
+global-exclude .komodotools TwitterPlus.komodoproject
