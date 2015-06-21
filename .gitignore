@@ -1,0 +1,7 @@
+*.pyc
+*.pyo
+.DS_Store
+.komodotools/
+dist/
+TwitterPlus.komodoproject
+mezzanine_twitterplus.egg-info/
